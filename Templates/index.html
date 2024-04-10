@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Routing</title>
+</head>
+<body>
+    <h1>Network Routing</h1>
+    <form action="/result" method="post">
+        <label for="n">Enter number of routers:</label>
+        <input type="number" name="n" id="n"><br>
+        <label for="src">Enter source router:</label>
+        <input type="number" name="src" id="src"><br>
+        {% for i in range(n) %}
+            <label for="router_{{ i }}">Enter name of router {{ i+1 }}:</label>
+            <input type="text" name="router_{{ i }}" id="router_{{ i }}"><br>
+        {% endfor %}
+        <br>
+        <h2>Enter distances between routers:</h2>
+        {% for i in range(n) %}
+            {% for j in range(n) %}
+                <label for="table_{{ i }}_{{ j }}">Distance between router {{ i+1 }} and router {{ j+1 }}:</label>
+                <input type="number" name="table_{{ i }}_{{ j }}" id="table_{{ i }}_{{ j }}"><br>
+            {% endfor %}
+        {% endfor %}
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
